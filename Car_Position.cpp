@@ -72,6 +72,18 @@ int main()
 	// Se imprime por pantalla el resultado
 	std::cout << "La distancia del objeto con el centro de coordenadas es:\n"  << qO << std::endl;
 
+	// Per comprobar que funciona igual multiplicando las matrices entre ellas y luego encontrar el valor directamente
+	Eigen::Matrix3d Ts_o;
+
+	// Se obtiene el valor combinado de las dos matrices de rotación
+	Ts_o = Tb_o * Ts_b;
+
+	// El resultado de esta manera queda
+	Eigen::Vector3d qO_prima;
+	qO_prima = Ts_o *qS;
+
+	std::cout << "El resultado multiplicando las matrices entre si, y luego multiplicando con qS: \n" << qO_prima << std::endl;
+
 	// Se finaliza el programa
 	return 0;
 }
